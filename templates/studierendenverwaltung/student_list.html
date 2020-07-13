@@ -1,0 +1,39 @@
+{%  extends 'studierendenverwaltung/base.html' %}
+
+{% block content %}
+    <a href="{% url 'add_student' %}" style="margin:10px 0 5px 12px" class="btn btn-primary"> Student hinzufügen </a>
+    <a href="{% url 'lehrverantaltung_list' %}" style="margin:10px 0 5px 12px" class="btn btn-primary"> Lehrveranstaltungen List </a>
+    <table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Matrikelnummer</th>
+            <th>Bereich</th>
+            <th>eingeschriebene Lehrveranstaltung</th>
+            <th>bearbeiten</th>
+            <th>löschen</th>
+        </tr>
+    </thead>
+
+    {% for student in students %}
+
+    <tbody>
+        <tr>
+            <td>{{student.id}}</td>
+            <td>{{student.vorname }}</td>
+            <td>{{student.nachname}}</td>
+            <td>{{student.matrikelNummer}}</td>
+            <td>{{student.bereich}}</td>
+            <td>{{student.lehrveranstaltung.all| join:', '}}</td>
+            <td><a href="{% url 'edit_student' pk=student.id %}" class="btn btn-primary btn-sm">bearbeiten</a></td>
+            <td><a href="{% url 'delete_student' pk=student.id %}" class="btn btn-danger btn-sm">löschen</a></td>
+        </tr>
+    </tbody>
+
+    {% endfor %}
+
+    </table>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{%  extends 'studierendenverwaltung/base.html' %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+
+<div>
+  <form action="" style="margin:50px" enctype="multipart/form-data" method="post" >
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <br><button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

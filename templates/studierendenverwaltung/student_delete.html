@@ -1,0 +1,15 @@
+{%  extends 'studierendenverwaltung/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<div class="form-group">
+  <form action="" style="margin:50px" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <h4>Bitte bestätigen Sie das Löschen der ausgewählten Beziehung mit Löschen!</h4>
+    <br><button type="submit" class="btn btn-primary">löschen</button>
+  </form>
+</div>
+{% endblock %}
+
